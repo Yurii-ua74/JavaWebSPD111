@@ -1,22 +1,38 @@
 package step.learning.servlets;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import step.learning.services.Db.DbService;
+import step.learning.services.hash.HashService;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("")
+@Singleton
 public class HomeServlet extends HttpServlet {
+    private final HashService  hashService;
+    private final DbService dbService;
+    @Inject
+    public HomeServlet(HashService hashService, DbService dbService) {
+        this.hashService = hashService;
+        this.dbService = dbService;
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // приходить requesr та respons
-        // додано до атрибута запиту додатковий - щодо тіла у шаблоні
-        // page-body піде в _layout
-        req.setAttribute("page-body","home");
-        // Імітуємо наче запит є "/WEB-INF/_layout.jsp" і передаємо в нього
-        // req із доданим атрибутом
-        req.getRequestDispatcher("/WEB-INF/_layout.jsp").forward(req,resp);
-    }
+            req.setAttribute("hash", hashService.digest("123"));
+            //String hash = hashService.digest("123");
+            //req.setAttribute("hash", hash);
+            req.setAttribute("db", dbService.getConnection() == null ? "Error" : "Success");
+            // приходить requesr та respons
+            // додано до атрибута запиту додатковий - щодо тіла у шаблоні
+            // page-body піде в _layout
+            req.setAttribute("page-body","home");
+            // Імітуємо наче запит є "/WEB-INF/_layout.jsp" і передаємо в нього
+            // req із доданим атрибутом
+            req.getRequestDispatcher("/WEB-INF/_layout.jsp").forward(req,resp);
+        }
 }

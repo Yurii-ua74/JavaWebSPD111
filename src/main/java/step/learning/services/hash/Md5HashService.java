@@ -10,7 +10,7 @@ public class Md5HashService implements HashService {
         try {
             StringBuilder sb = new StringBuilder();
             for (byte b :
-                    MessageDigest.getInstance("MDS").digest(
+                    MessageDigest.getInstance("MD5").digest(
                             input.getBytes(StandardCharsets.UTF_8)
                     )) {
                 sb.append(String.format("%02x", b));

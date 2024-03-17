@@ -1,5 +1,6 @@
 package step.learning.servlets;
 
+import com.google.inject.Singleton;
 import step.learning.dal.dao.PromotionDAO;
 import step.learning.dal.dto.PromotionDTO;
 
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/promotion")
+@Singleton
 public class PromotionsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
