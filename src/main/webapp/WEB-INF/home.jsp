@@ -4,6 +4,6 @@
     Контроль хеш-сервісу: <%=request.getAttribute("hash")%>
 </p>
 <p>
-    Контроль БД: <%=request.getAttribute("db")%>
+     Контроль БД: <%=request.getAttribute("db")%>
 </p>
 

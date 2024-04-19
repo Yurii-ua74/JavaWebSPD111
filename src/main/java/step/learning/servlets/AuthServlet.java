@@ -30,7 +30,7 @@ public class AuthServlet extends HttpServlet {
             sendRest(resp,"error","Property 'token' required", null);
             return;
         }
-        User user = userDao.getUserByToken(token);
+        User user = userDao.getUserByToken(token);  // отримання токена еористувача
         if(user==null){
             sendRest(resp,"error","Token invalid or expired", null);
         }
@@ -93,7 +93,7 @@ public class AuthServlet extends HttpServlet {
             return;
         }
 
-        String checkToken = userDao.checkUserToken(user_id);
+        String checkToken = userDao.checkUserToken(user_id);  // перевірка токена
         if(checkToken != null && !checkToken.isEmpty()) {
             sendRest(resp,"success","Credentials during token confirmed", checkToken);
         }

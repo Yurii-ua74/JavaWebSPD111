@@ -12,22 +12,37 @@
     // налаштування модальних вікон
     var elems = document.querySelectorAll('.modal');
     M.Modal.init(elems, {
-        "opacity": 0.5, 	// Opacity of the modal overlay.
-        "inDuration": 250, 	// Transition in duration in milliseconds.
-        "outDuration": 250, 	// Transition out duration in milliseconds.
-        "onOpenStart": null,	// Callback function called before modal is opened.
-        "onOpenEnd": null,	// Callback function called after modal is opened.
-        "onCloseStart": null,	// Callback function called before modal is closed.
-        "onCloseEnd": null,	// Callback function called after modal is closed.
-        "preventScrolling": true,	// Prevent page from scrolling while modal is open.
-        "dismissible": true,	// Allow modal to be dismissed by keyboard or overlay click.
-        "startingTop": '4%',	// Starting top offset
-        "endingTop": '10%'	// Ending top offset
+        "opacity": 0.5, 	      // Opacity of the modal overlay.
+        "inDuration": 250, 	      // Transition in duration in milliseconds.
+        "outDuration": 250, 	  // Transition out duration in milliseconds.
+        "onOpenStart": null,	  // Callback function called before modal is opened.
+        "onOpenEnd": null,	      // Callback function called after modal is opened.
+        "onCloseStart": null,	  // Callback function called before modal is closed.
+        "onCloseEnd": null,	      // Callback function called after modal is closed.
+        "preventScrolling": true, // Prevent page from scrolling while modal is open.
+        "dismissible": true,	  // Allow modal to be dismissed by keyboard or overlay click.
+        "startingTop": '4%',	  // Starting top offset
+        "endingTop": '10%'	      // Ending top offset
     });
     checkAuth();
 });
 
-
+function serveCartButtons() {
+    // шукаємо id користувача (з його аватарки)
+    const userId = document.querySelector('[data-user-id]').getAttribute('data-user-id');
+    // шукаємо всі кнопки "додати до кошику" за ознакою data-product="..."
+    for( let btn of document.querySelectorAll('[data-product]') ) {
+        btn.onclick = () => {
+            // вилучаємо id з атрибута
+            let productId = btn.getAttribute('data-product');
+            // при натисненні надсилаємо запит до API
+            fetch(`/${getContext()}/shop-api?user-id=${userId}&product-id=${productId}`, {
+                method: 'PUT'
+            })
+                .then(r => r.json())
+                .then(console.log);
+        }
+    }}
 
 function  getContext() {
     return window.location.pathname.split('/')[1];
@@ -61,23 +76,21 @@ function authButtonClick(e) {
 function checkAuth() {
     // ... при завантаженні сторінки перевіряємо наявність даних автентифікації у localStorage
     const  authToken = localStorage.getItem("auth-token");
-    if (!authToken) {
-        alert("ERROR: 401");
-    }
+    if (authToken) {
         //перевіряємо токен на валідність
         fetch(`/${getContext()}/auth?token=${authToken}`, {
             method: 'POST'
         })
-            .then( r => r.json() )
+            .then(r => r.json())
             // .then(console.log);
             .then(j => {
-                if(j.meta.status === 'success') {
+                if (j.meta.status === 'success') {
                     // замінити "кнопку" входу на аватарку користувача
                     document.querySelector('[data-auth="avatar"]')
-                        .innerHTML = `<img title="${j.data.name}" class="nav-avatar" src="/${getContext()}/img/avatar/${j.data.avatar}"  alt="avatar"/>`
+                        .innerHTML = `<img data-user-id="${j.data.id}" title="${j.data.name}" class="nav-avatar" src="/${getContext()}/img/avatar/${j.data.avatar}"  alt="avatar"/>`
 
                     const product = document.querySelector('[data-auth="product"]');
-                    if(product) {
+                    if (product) {
                         fetch(`/${getContext()}/product.jsp`)
                             .then(r => r.text())
                             .then(t => {
@@ -86,9 +99,10 @@ function checkAuth() {
                                     .addEventListener('click', addProductClick);
                             });
                     }
+                    serveCartButtons();
                 }
             });
-
+    }
 }
 
 // Визначення функції для відображення помилки

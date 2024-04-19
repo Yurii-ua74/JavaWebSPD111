@@ -38,7 +38,7 @@
     </nav>
 </header>
 
-<main class="container">
+<main class="<%=request.getAttribute("skip-container") == null ? "container" : ""%>">
     <%--  <jsp:include page="home.jsp"/> --%>
     <jsp:include page="<%= bodyFile %>"/>
 </main>
