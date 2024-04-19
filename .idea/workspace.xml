@@ -9,23 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30eaa47c-1544-459e-ab92-68e33575ba28" name="Changes" comment="Initial2">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/dal/dao/CartDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/dal/dao/CartDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/dal/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/dal/dao/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/dal/dto/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/dal/dto/CartItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/dal/dto/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/dal/dto/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/servlets/AuthServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/servlets/AuthServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/servlets/CartServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/servlets/CartServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/servlets/ShopApiServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/servlets/ShopApiServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/_layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/_layout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/site.js" afterDir="false" />
-    </list>
+    <list default="true" id="30eaa47c-1544-459e-ab92-68e33575ba28" name="Changes" comment="Initial3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,15 +212,45 @@
       <option name="project" value="LOCAL" />
       <updated>1712951799350</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial3">
+      <option name="closed" value="true" />
+      <created>1713554093077</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713554093077</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="11ee1269-b5f0-4b6f-a57f-005a03900992" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="11ee1269-b5f0-4b6f-a57f-005a03900992">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
     <MESSAGE value="Initial2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial2" />
+    <MESSAGE value="Initial3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial3" />
   </component>
 </project>
